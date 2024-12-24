@@ -13,37 +13,38 @@
 			
 			</div>
 			<div class="player-balance">
-				Saldo: R$<span id="player-balance"></span>
+				R$<span id="player-balance"></span>
 			</div>
 		</div>
         <div id="roulette-timers">
-			<svg width="100%" height="auto" viewBox="0 0 90 158" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="selector">
-				<defs>
-					<filter x="-172.3%" y="-52.0%" width="446.0%" height="204.3%" filterUnits="objectBoundingBox" id="filter-1">
-						<feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-						<feGaussianBlur stdDeviation="14.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-						<feColorMatrix values="0 0 0 0 0.0549019608   0 0 0 0 0.0941176471   0 0 0 0 0.133333333  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
-						<feMerge>
-							<feMergeNode in="shadowMatrixOuter1"></feMergeNode>
-							<feMergeNode in="SourceGraphic"></feMergeNode>
-						</feMerge>
-					</filter>
-				</defs>
-				<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-					<g id="wheel-game-platinum" transform="translate(-837.000000, -381.000000)">
-						<g id="Group-13" transform="translate(487.000000, 125.000000)">
-							<g id="Group-9" transform="translate(395.000000, 327.789474) rotate(-15.000000) translate(-395.000000, -327.789474) translate(363.000000, 268.000000)">
-								<g id="Group-8" filter="url(#filter-1)" transform="translate(31.707237, 59.789474) rotate(-345.000000) translate(-31.707237, -59.789474) translate(14.444079, 2.526316)">
-									<circle id="Oval" fill="#FFFFFF" cx="17.2631579" cy="96.8421053" r="17.2631579"></circle>
-									<path d="M-1.19670355e-13,95.1578947 L15.2952789,10.847333 C15.4924471,9.76050341 16.5333329,9.03929038 17.6201625,9.23645857 C18.4403487,9.38525342 19.082242,10.0271467 19.2310369,10.847333 L34.5263158,95.1578947 L-1.19670355e-13,95.1578947 Z" id="Path-7" fill="#FFFFFF"></path>
-									<circle id="Oval" fill="rgb(168, 30, 53)" cx="17.2631579" cy="97.6842105" r="10.5263158"></circle>
-								</g>
-							</g>
-						</g>
-					</g>
-				</g>
-			</svg>
-		</div>
+            <svg width="90px" height="158px" viewBox="0 0 90 158" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="selector">
+                <defs>
+                    <filter x="-172.3%" y="-52.0%" width="446.0%" height="204.3%" filterUnits="objectBoundingBox" id="filter-1">
+                        <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                        <feGaussianBlur stdDeviation="14.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+                        <feColorMatrix values="0 0 0 0 0.0549019608   0 0 0 0 0.0941176471   0 0 0 0 0.133333333  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+                        <feMerge>
+                            <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                            <feMergeNode in="SourceGraphic"></feMergeNode>
+                        </feMerge>
+                    </filter>
+                </defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="wheel-game-platinum" transform="translate(-837.000000, -381.000000)">
+                        <g id="Group-13" transform="translate(487.000000, 125.000000)">
+                            <g id="Group-9" transform="translate(395.000000, 327.789474) rotate(-15.000000) translate(-395.000000, -327.789474) translate(363.000000, 268.000000)">
+                                <g id="Group-8" filter="url(#filter-1)" transform="translate(31.707237, 59.789474) rotate(-345.000000) translate(-31.707237, -59.789474) translate(14.444079, 2.526316)">
+                                    <circle id="Oval" fill="#FFFFFF" cx="17.2631579" cy="96.8421053" r="17.2631579"></circle>
+                                    <path d="M-1.19670355e-13,95.1578947 L15.2952789,10.847333 C15.4924471,9.76050341 16.5333329,9.03929038 17.6201625,9.23645857 C18.4403487,9.38525342 19.082242,10.0271467 19.2310369,10.847333 L34.5263158,95.1578947 L-1.19670355e-13,95.1578947 Z" id="Path-7" fill="#FFFFFF"></path>
+                                    <circle id="Oval" fill="rgb(168, 30, 53)" cx="17.2631579" cy="97.6842105" r="10.5263158"></circle>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </div>
+
         <div class="inputs-wrapper">
             <div class="bet-input-row">
                 <div class="balance-color">
@@ -56,12 +57,12 @@
 
                     <button class="grey half">½</button>
                     <button class="grey double">2x</button>
-                </div>    
+                </div>   
                 <div class="color-buttons">
                     <button data-color="red" class="color-button red">Red</button>
                     <button data-color="white" class="color-button white">White</button>
                     <button data-color="black" class="color-button black">Black</button>
-                </div>        
+                </div>         
             </div>
         </div>    
     </div>

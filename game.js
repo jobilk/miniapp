@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         resultsContainer.prepend(newBall);
 
-        if (resultsContainer.children.length > 17) {
+        if (resultsContainer.children.length > 6) {
             resultsContainer.removeChild(resultsContainer.lastChild);
         }
     }

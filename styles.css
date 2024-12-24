@@ -7,8 +7,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
 }
 
 .game-wrapper {
@@ -27,20 +25,12 @@ body {
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-#roulette-timers svg {
-    max-width: 100%;
-    height: auto;
 }
 
 .roulette-container {
     margin-bottom: 30px;
     text-align: center;
-    width: 100%;
-    max-width: 800px;
+    width: 400px;
     overflow: hidden;
 }
 
@@ -48,8 +38,7 @@ body {
     overflow: hidden;
     position: relative;
     height: 300px;
-    width: 100%;
-    max-width: 800px;
+    width: 400px;
     background-color: #222;
     border-radius: 10px;
     display: flex;
@@ -61,8 +50,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 8s ease-out;
-    width: 100%;
+    transition: transform 8s ease-out;	
+	width: auto;
+    max-width: 100%;
 }
 
 .title-wrapper {
@@ -164,8 +154,9 @@ body {
 }
 
 .selector {
-    position: absolute;
     top: 235px;
+    position: absolute;
+    bottom: 55px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
@@ -198,15 +189,18 @@ body {
 
 .bet-input-row {
     display: flex;
+    flex-direction: column;  /* Adicionado para empurrar os itens para baixo */
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
     background-color: #222222;
     padding: 20px;
     border-radius: 8px;
-    width: 100%;
-    max-width: 800px;
+    width: 400px;
+    padding-right: 0px;
+    padding-left: 0px;
 }
+
 
 button:hover {
     background-color: #777;
@@ -240,19 +234,11 @@ button {
     border-radius: 4px;
     cursor: pointer;
     margin-right: 10px;
-    color: white;
+	color: white
 }
 
-input[type="number"] {
-    padding: 5px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    width: 80px;
-    text-align: right;
-    border-radius: 4px;
-    background-color: #222222;
-    color: white;
+.input.side {
+    margin-top: 20px;
 }
 
 .sc-emIrwa .sc-gRtvSG {
@@ -338,7 +324,7 @@ input[type="number"] {
     margin-right: 10px;
 }
 
-input[type="number"] {
+.input-field {
     padding: 8px;
     font-size: 16px;
     border: none;
@@ -364,21 +350,18 @@ button:hover {
 }
 
 .color-buttons {
-    width: 300px;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+    width: 300px;	
+    margin-top: 15px;
 }
 
 .color-button {
     width: 85px;
     height: 56px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    color: white;
-    font-weight: bold;
-    border-radius: 4px;
+	padding: 10px 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	color: white;
+	font-weight: bold;
 }
 
 .color-button.red {
@@ -413,7 +396,7 @@ button:hover {
     background-color: #222222;
     padding: 20px;
     border-radius: 8px;
-    width: 800px;
+    width: 400px;
     box-sizing: border-box;
 }
 
@@ -459,4 +442,17 @@ button:hover {
 
 .result-ball:hover {
     filter: brightness(1.2);
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #222222;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+
+button:hover {
+    background-color: #444;
 }
