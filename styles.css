@@ -7,6 +7,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .game-wrapper {
@@ -25,17 +27,20 @@ body {
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    max-width: 400px;  /* Ajuste o tamanho máximo conforme necessário */
-    margin: 0 auto;    /* Centraliza o conteúdo */
+    max-width: 400px;
+    margin: 0 auto;
 }
+
 #roulette-timers svg {
-    max-width: 100%;  /* A imagem não ultrapassa a largura do contêiner */
-    height: auto;     /* Mantém a proporção da imagem */
+    max-width: 100%;
+    height: auto;
 }
+
 .roulette-container {
     margin-bottom: 30px;
     text-align: center;
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     overflow: hidden;
 }
 
@@ -43,7 +48,8 @@ body {
     overflow: hidden;
     position: relative;
     height: 300px;
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     background-color: #222;
     border-radius: 10px;
     display: flex;
@@ -55,9 +61,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 8s ease-out;	
-	width: auto;
-    max-width: 100%;
+    transition: transform 8s ease-out;
+    width: 100%;
 }
 
 .title-wrapper {
@@ -159,9 +164,8 @@ body {
 }
 
 .selector {
-    top: 235px;
     position: absolute;
-    bottom: 55px;
+    top: 235px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
@@ -200,9 +204,8 @@ body {
     background-color: #222222;
     padding: 20px;
     border-radius: 8px;
-    width: 800px;
-    padding-right: 0px;
-    padding-left: 0px;
+    width: 100%;
+    max-width: 800px;
 }
 
 button:hover {
@@ -237,11 +240,19 @@ button {
     border-radius: 4px;
     cursor: pointer;
     margin-right: 10px;
-	color: white
+    color: white;
 }
 
-.input.side {
-    margin-top: 20px;
+input[type="number"] {
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    width: 80px;
+    text-align: right;
+    border-radius: 4px;
+    background-color: #222222;
+    color: white;
 }
 
 .sc-emIrwa .sc-gRtvSG {
@@ -327,7 +338,7 @@ button {
     margin-right: 10px;
 }
 
-.input-field {
+input[type="number"] {
     padding: 8px;
     font-size: 16px;
     border: none;
@@ -354,16 +365,20 @@ button:hover {
 
 .color-buttons {
     width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 }
 
 .color-button {
     width: 85px;
     height: 56px;
-	padding: 10px 20px;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-	color: white;
-	font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
 }
 
 .color-button.red {
@@ -444,17 +459,4 @@ button:hover {
 
 .result-ball:hover {
     filter: brightness(1.2);
-}
-
-button {
-    padding: 10px 15px;
-    background-color: #222222;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    color: white;
-}
-
-button:hover {
-    background-color: #444;
 }
