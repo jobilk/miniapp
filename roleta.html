@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roleta de Apostas</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+        .roleta {
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+            border: 10px solid #ccc;
+            border-radius: 50%;
+            position: relative;
+        }
+        .roleta img {
+            width: 100%;
+            border-radius: 50%;
+        }
+        .botao-girar {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎡 Roleta de Apostas 🎡</h1>
+    <div class="roleta" id="roleta">
+        <img src="https://i.imgur.com/uANjhzf.png" alt="Roleta">
+    </div>
+    <button class="botao-girar" onclick="girarRoleta()">Girar!</button>
+    <script>
+        function girarRoleta() {
+    const roleta = document.getElementById("roleta");
+    const angulo = Math.floor(Math.random() * 360) + 720; // Gira no mínimo 2 voltas completas
+    roleta.style.transition = "transform 3s ease-out";
+    roleta.style.transform = `rotate(${angulo}deg)`;
+
+    setTimeout(() => {
+        const resultado = (angulo % 360) < 120 ? "vermelho" :
+                          (angulo % 360) < 240 ? "preto" : "branco";
+
+        alert(`Resultado: ${resultado.toUpperCase()}!`);
+
+        // Obtenha o nome do bot da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const botUsername = urlParams.get('bot');
+
+        // Redirecione de volta ao bot
+        window.location.href = `https://t.me/${botUsername}?start=resultado_${resultado}`;
+    }, 3100);
+}
+
+    </script>
+</body>
+</html>
