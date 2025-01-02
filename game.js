@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const randomtitleIndex = Math.floor(Math.random() * (200 - 70 + 1)) + 100;
+		const randomtitleIndex = Math.floor(Math.random() * (225 - 114 + 1)) + 114;
 		
         const titleElement = document.querySelector(`.title-${randomtitleIndex}`);
         if (!titleElement) {
