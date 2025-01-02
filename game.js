@@ -152,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const randomtitleIndex = Math.floor(Math.random() * (200 - 70 + 1)) + 100;
-		console.log(`randomtitleIndex (${randomtitleIndex})`)
 		
         const titleElement = document.querySelector(`.title-${randomtitleIndex}`);
         if (!titleElement) {
@@ -165,8 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const sliderCenter = slider.offsetWidth / 2;
         const targetOffset = titleElement.offsetLeft + titleElement.offsetWidth / 2;		
         let distance = targetOffset - sliderCenter;
-		console.log(`maior (${distance})`)
-		console.log(`targetOffset (${targetOffset})`)
 
         entries.style.transition = 'transform 6s ease-out';
         entries.style.transform = `translateX(-${distance}px)`;
