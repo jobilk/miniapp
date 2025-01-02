@@ -151,22 +151,25 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const randomtitleIndex = Math.floor(Math.random() * (200 - 70 + 1)) + 70;
-        const titleElement = document.querySelector(`.title-${randomtitleIndex}`);
-        if (!titleElement) {
-            console.error(`Div com a classe .title-${randomtitleIndex} não encontrada.`);
-            return;
-        }
+const randomtitleIndex = Math.floor(Math.random() * (200 - 70 + 1)) + 70;
+const titleElement = document.querySelector(`.title-${randomtitleIndex}`);
+if (!titleElement) {
+    console.error(`Div com a classe .title-${randomtitleIndex} não encontrada.`);
+    return;
+}
 
-        const entries = document.querySelector('.entries');
-        const slider = document.querySelector('.wrapper');
-        const sliderCenter = slider.offsetWidth / 2;
-        const targetOffset = titleElement.offsetLeft + titleElement.offsetWidth / 2;
-        const distance = targetOffset - sliderCenter;
+const entries = document.querySelector('.entries');
+const slider = document.querySelector('.wrapper');
+const sliderCenter = slider.offsetWidth / 2;
+const targetOffset = titleElement.offsetLeft + titleElement.offsetWidth / 2;
+const distance = Math.abs(targetOffset - sliderCenter); // Usando Math.abs() para garantir que seja positivo
 
-        entries.style.transition = 'transform 6s ease-out';
-        entries.style.transform = `translateX(-${distance}px)`;
+entries.style.transition = 'transform 6s ease-out';
+console.log(distance);
+entries.style.transform = `translateX(-${distance}px)`;
 
+
+		isSpinning = false;
         setTimeout(() => {
             const classes = titleElement.classList;
 
@@ -190,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 resetRoulette();
             }, 2000);
 
-            isSpinning = false;
         }, 6000);
     }
 
