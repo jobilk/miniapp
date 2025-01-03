@@ -1,27 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get('user_id');
-    const localIp = 'https://ff7a-191-37-172-226.ngrok-free.app';
+    const localIp = 'https://bbef-191-37-172-226.ngrok-free.app';
 
     const apiUrl = `${localIp}/get_balance/${userId}`;
     let userBalance = 0;
 
     async function fetchBalance() {
-        try {
-            const response = await fetch(apiUrl);
-            const data = await response.json();
+		try {
+			const response = await fetch(apiUrl, {
+				headers: {
+					'ngrok-skip-browser-warning': 'true'
+				}
+			});
+			const data = await response.json();
 
-            if (response.ok) {
-                userBalance = data.balance;
-                document.getElementById('player-balance').textContent = userBalance.toFixed(2);
-            } else {
-                alert(data.error || "Erro ao buscar saldo.");
-            }
-        } catch (error) {
-            console.error("Erro na requisição:", error);
-            alert("Erro ao conectar ao servidor.");
-        }
-    }
+			if (response.ok) {
+				userBalance = data.balance;
+				document.getElementById('player-balance').textContent = userBalance.toFixed(2);
+			} else {
+				alert(data.error || "Erro ao buscar saldo.");
+			}
+		} catch (error) {
+			console.error("Erro na requisição:", error);
+			alert("Erro ao conectar ao servidor.");
+		}
+	}
 
     fetchBalance();
 
