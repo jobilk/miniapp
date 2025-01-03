@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get('user_id');
-    const localIp = 'https://0c5f-191-37-172-226.ngrok-free.app';
+    const localIp = 'https://afc8-191-37-172-226.ngrok-free.app';
 
     const apiUrl = `${localIp}/get_balance/${userId}`;
     let userBalance = 0;
