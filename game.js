@@ -1,14 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const placeBetButton = document.querySelectorAll('button');
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('user_id');
+    const localIp = '192.168.1.6';
+
+    const apiUrl = `http://${localIp}:5000/get_balance/${userId}`;
+    let userBalance = 0;
+
+    async function fetchBalance() {
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+
+            if (response.ok) {
+                userBalance = data.balance;
+                document.getElementById('player-balance').textContent = userBalance.toFixed(2);
+            } else {
+                alert(data.error || "Erro ao buscar saldo.");
+            }
+        } catch (error) {
+            console.error("Erro na requisição:", error);
+            alert("Erro ao conectar ao servidor.");
+        }
+    }
+
+    fetchBalance();
+
     const quantiaInput = document.getElementById('quantia');
     const colorButtons = document.querySelectorAll('.color-button');
-
-    let userBalance = 20.00;
-
-    document.getElementById('player-balance').textContent = userBalance.toFixed(2);
-
     const halfButton = document.querySelector('.grey.half');
     const doubleButton = document.querySelector('.grey.double');
+
+    document.getElementById('player-balance').textContent = userBalance.toFixed(2);
 
     function updateInputValue(value) {
         if (value < 0.50) {
@@ -21,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     halfButton.addEventListener('click', () => {
         let currentValue = parseFloat(quantiaInput.value);
-        if (isNaN(currentValue)) currentValue = 1; 
-        let newValue = currentValue / 2; 
+        if (isNaN(currentValue)) currentValue = 1;
+        let newValue = currentValue / 2;
         updateInputValue(newValue);
     });
 
@@ -32,21 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let newValue = currentValue * 2;
         updateInputValue(newValue);
     });
-    
-    function getSelectedButton() {
-        const selectedButton = document.querySelector('.color-buttons .selected');
-        if (selectedButton) {
-            return selectedButton.dataset.color;
-        }
-        return null;
-    }
-    
+
     colorButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             colorButtons.forEach(b => b.classList.remove('selected'));
             button.classList.add('selected');
 
-            let quantia = parseFloat(document.getElementById('quantia').value);
+            let quantia = parseFloat(quantiaInput.value);
 
             if (quantia > userBalance) {
                 alert("Saldo insuficiente para realizar a aposta.");
@@ -58,34 +72,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    quantiaInput.addEventListener('input', function() {
+    quantiaInput.addEventListener('input', function () {
         let value = parseFloat(quantiaInput.value);
 
         if (quantiaInput.value.trim() === "") {
-            const minValue = parseFloat(quantiaInput.getAttribute('min'));
-            if (!isNaN(minValue) && minValue > 0) {
-                quantiaInput.value = minValue.toFixed(2);
-            } else {
-                console.error('Valor mínimo não é válido');
-            }
+            quantiaInput.value = (0.50).toFixed(2);
         }
 
         if (value < 0.50 || isNaN(value)) {
             quantiaInput.value = (0.50).toFixed(2);
-        }
-        else if (value > 50.00) {
+        } else if (value > 50.00) {
             quantiaInput.value = (50.00).toFixed(2);
-        }
-        else {
+        } else {
             quantiaInput.value = value.toFixed(2);
         }
 
         colorButtons.forEach(button => {
-            if (quantiaInput.value.trim() !== "") {
-                button.disabled = false;
-            } else {
-                button.disabled = true;
-            }
+            button.disabled = quantiaInput.value.trim() === "";
         });
     });
 
