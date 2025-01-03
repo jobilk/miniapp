@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const userId = urlParams.get('user_id');
     const localIp = 'https://ff7a-191-37-172-226.ngrok-free.app';
 
-    const apiUrl = `http://${localIp}/get_balance/${userId}`;
+    const apiUrl = `${localIp}/get_balance/${userId}`;
     let userBalance = 0;
 
     async function fetchBalance() {
