@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get('user_id');
-    const localIp = 'https://bbef-191-37-172-226.ngrok-free.app';
+    const localIp = 'https://0c5f-191-37-172-226.ngrok-free.app';
 
     const apiUrl = `${localIp}/get_balance/${userId}`;
     let userBalance = 0;
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		try {
 			const response = await fetch(apiUrl, {
 				headers: {
-					'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+					        'ngrok-skip-browser-warning': '69420',
 				}
 			});
 			const data = await response.json();
