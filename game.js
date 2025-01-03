@@ -9,8 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	async function fetchBalance() {
 		try {
 			const response = await fetch(apiUrl, {
+				method: 'GET',
 				headers: {
-					        'ngrok-skip-browser-warning': '69420',
+					'ngrok-skip-browser-warning': '69420',  // Evitar o aviso do Ngrok
+					'Content-Type': 'application/json'
 				}
 			});
 			const data = await response.json();
